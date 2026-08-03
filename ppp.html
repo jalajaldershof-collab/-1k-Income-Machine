@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$1K Income Machine — First Customer System</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ----- Color Scheme ----- */
+        :root {
+            --primary-green: #00c853;
+            --dark-green: #009624;
+            --glow-green: #69f0ae;
+            --neon-green: #b9f6ca;
+            --pure-black: #000000;
+            --soft-black: #0a0a0a;
+            --card-bg: #0d0d0d;
+            --accent-blue: #2979ff;
+            --light-blue: #82b1ff;
+            --text-light: #e8e8e8;
+            --text-muted: #888888;
+            --border-gray: #2a2a2a;
+            --shadow-heavy: rgba(0, 200, 83, 0.15);
+            --shadow-medium: rgba(0, 200, 83, 0.08);
+        }
+
+        /* ----- Buttons ----- */
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(145deg, #00e676, #00c853);
+            color: #000;
+            font-weight: 800;
+            padding: 18px 44px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 30px rgba(0, 200, 83, 0.5), 0 0 60px rgba(0, 200, 83, 0.15);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(105, 240, 174, 0.3);
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 45px rgba(0, 200, 83, 0.7), 0 0 80px rgba(0, 200, 83, 0.25);
+            background: linear-gradient(145deg, #69f0ae, #00c853);
+            border-color: #69f0ae;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: #e0e0e0;
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 1rem;
+            border: 1.5px solid #444444;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #00e676;
+            color: #69f0ae;
+            box-shadow: 0 6px 25px rgba(0, 200, 83, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #69f0ae, #82b1ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 40px rgba(0, 200, 83, 0.1);
+        }
+
+        .section-sub {
+            font-size: 1.2rem;
+            color: #888888;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+        }
+
+        /* ----- Navigation ----- */
+        .navbar {
+            padding: 20px 0;
+            border-bottom: 1px solid #2a2a2a;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: -1px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+        }
+
+        .logo span {
+            color: #69f0ae;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #bbbbbb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #69f0ae;
+        }
+
+        .nav-links .btn-small {
+            background: #00c853;
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            box-shadow: 0 0 30px rgba(0, 200, 83, 0.3);
+            transition: all 0.3s;
+        }
+
+        .nav-links .btn-small:hover {
+            background: #69f0ae;
+            color: #000;
+            box-shadow: 0 0 50px rgba(0, 200, 83, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* ----- Carousel with BOLD shadows ----- */
+        .carousel-section {
+            padding: 30px 0 20px 0;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 60px rgba(0, 200, 83, 0.08), 0 0 100px rgba(0, 200, 83, 0.04);
+            border: 1px solid #2a2a2a;
+            background: #0a0a0a;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0d0d0d;
+            color: #888;
+            font-size: 1.2rem;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: #111111;
+            color: #444;
+            font-size: 1rem;
+            border-right: 1px solid #222;
+        }
+
+        .slide-placeholder i {
+            font-size: 4rem;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .slide-placeholder span {
+            color: #555;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            border: 1px solid #333;
+            padding: 14px 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .carousel-btn:hover {
+            background: rgba(0, 200, 83, 0.25);
+            border-color: #00c853;
+            color: #69f0ae;
+            box-shadow: 0 0 40px rgba(0, 200, 83, 0.2), 0 4px 25px rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .carousel-btn.prev {
+            left: 16px;
+        }
+
+        .carousel-btn.next {
+            right: 16px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 0 8px 0;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #333;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-dot.active {
+            background: #00c853;
+            box-shadow: 0 0 25px rgba(0, 200, 83, 0.5), 0 0 50px rgba(0, 200, 83, 0.2);
+            transform: scale(1.3);
+        }
+
+        .carousel-dot:hover {
+            background: #555;
+            transform: scale(1.2);
+        }
+
+        /* ----- Hero Section ----- */
+        .hero {
+            padding: 50px 0 30px 0;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(41, 121, 255, 0.12);
+            color: #82b1ff;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid #2a2a2a;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #69f0ae, #2979ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 60px rgba(0, 200, 83, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #aaaaaa;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .stars {
+            color: #ffd54f;
+            font-size: 1.4rem;
+            letter-spacing: 6px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 40px rgba(255, 213, 79, 0.2);
+        }
+
+        .hero .rating-text {
+            color: #888888;
+            font-weight: 500;
+        }
+
+        .hero .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        /* ----- Review Cards with BOLD shadows ----- */
+        .reviews-section {
+            padding: 60px 0;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .review-card {
+            background: #0d0d0d;
+            border-radius: 28px;
+            padding: 32px 28px;
+            border: 1px solid #2a2a2a;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 200, 83, 0.05), 0 0 60px rgba(0, 200, 83, 0.02);
+        }
+
+        .review-card:hover {
+            transform: translateY(-8px);
+            border-color: #444444;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 50px rgba(0, 200, 83, 0.08), 0 0 80px rgba(0, 200, 83, 0.04);
+        }
+
+        .review-card .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .review-card .user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .review-card .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #00c853, #009624);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #000;
+            font-size: 1.2rem;
+            box-shadow: 0 0 30px rgba(0, 200, 83, 0.3);
+        }
+
+        .review-card .user-info h4 {
+            font-weight: 600;
+            color: #e8e8e8;
+        }
+
+        .review-card .user-info .handle {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .review-card .card-stars {
+            color: #ffd54f;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255, 213, 79, 0.15);
+        }
+
+        .review-card .product-tag {
+            display: inline-block;
+            background: rgba(41, 121, 255, 0.08);
+            color: #82b1ff;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid #2a2a2a;
+            margin: 8px 0 12px 0;
+        }
+
+        .review-card p {
+            color: #cccccc;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .review-card .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #222;
+            padding-top: 16px;
+            margin-top: 8px;
+        }
+
+        .review-card .card-footer .likes {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .review-card .card-footer .likes i {
+            color: #ef5350;
+            margin-right: 6px;
+        }
+
+        .review-card .product-link {
+            color: #69f0ae;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .review-card .product-link:hover {
+            color: #b9f6ca;
+            text-decoration: underline;
+        }
+
+        /* ----- Product Highlight with BOLD shadows ----- */
+        .product-highlight {
+            background: #0a0a0a;
+            border-radius: 40px;
+            padding: 50px 40px;
+            margin: 40px 0;
+            border: 1px solid #2a2a2a;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 200, 83, 0.05), 0 0 80px rgba(0, 200, 83, 0.02);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            transition: box-shadow 0.4s ease;
+        }
+
+        .product-highlight:hover {
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.9), 0 0 60px rgba(0, 200, 83, 0.08), 0 0 100px rgba(0, 200, 83, 0.04);
+        }
+
+        .product-highlight .info {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        .product-highlight .info h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #e8e8e8;
+        }
+
+        .product-highlight .info .first-customer-highlight {
+            color: #69f0ae;
+            text-shadow: 0 0 30px rgba(0, 200, 83, 0.2);
+        }
+
+        .product-highlight .info .blue-accent {
+            color: #82b1ff;
+        }
+
+        .product-highlight .info .feature-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .product-highlight .info .feature-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #cccccc;
+        }
+
+        .product-highlight .info .feature-list li i {
+            color: #00e676;
+            width: 20px;
+            text-shadow: 0 0 20px rgba(0, 200, 83, 0.3);
+        }
+
+        .product-highlight .media {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            background: #0d0d0d;
+            padding: 30px 20px;
+            border-radius: 30px;
+            border: 1px dashed #333;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-highlight .media i {
+            font-size: 4rem;
+            color: #00e676;
+            margin-bottom: 10px;
+            text-shadow: 0 0 50px rgba(0, 200, 83, 0.4);
+        }
+
+        .product-highlight .media .placeholder-text {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* ----- Process Steps with BOLD shadows ----- */
+        .process-step {
+            background: #0d0d0d;
+            padding: 30px 24px;
+            border-radius: 28px;
+            border: 1px solid #2a2a2a;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 200, 83, 0.03);
+            transition: all 0.4s ease;
+        }
+
+        .process-step:hover {
+            border-color: #444;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 50px rgba(0, 200, 83, 0.06), 0 0 80px rgba(0, 200, 83, 0.03);
+            transform: translateY(-6px);
+        }
+
+        .process-step .step-number {
+            background: #00c853;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #000;
+            box-shadow: 0 0 40px rgba(0, 200, 83, 0.3);
+        }
+
+        .process-step h3 {
+            margin-bottom: 10px;
+            color: #e8e8e8;
+        }
+
+        .process-step p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* ----- CTA Section with BOLD shadows ----- */
+        .cta-section {
+            text-align: center;
+            padding: 70px 0 50px 0;
+            border-top: 1px solid #2a2a2a;
+            margin-top: 30px;
+        }
+
+        .cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #0a0a0a;
+            padding: 50px 30px;
+            border-radius: 60px;
+            border: 1px solid #2a2a2a;
+            box-shadow: 0 10px 60px rgba(0, 0, 0, 0.9), 0 0 50px rgba(0, 200, 83, 0.05), 0 0 80px rgba(0, 200, 83, 0.02);
+            transition: box-shadow 0.4s ease;
+        }
+
+        .cta-box:hover {
+            box-shadow: 0 15px 70px rgba(0, 0, 0, 0.95), 0 0 70px rgba(0, 200, 83, 0.08), 0 0 100px rgba(0, 200, 83, 0.04);
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            color: #ffffff;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-section .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #69f0ae;
+            margin: 16px 0;
+            text-shadow: 0 0 40px rgba(0, 200, 83, 0.3);
+        }
+
+        .cta-section .price small {
+            font-size: 1rem;
+            color: #666;
+            text-decoration: line-through;
+            margin-left: 12px;
+            font-weight: 400;
+        }
+
+        .cta-section .guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #888;
+            margin: 20px 0 30px;
+        }
+
+        .cta-section .guarantee i {
+            color: #00e676;
+            font-size: 1.4rem;
+            text-shadow: 0 0 30px rgba(0, 200, 83, 0.3);
+        }
+
+        /* ----- FAQ with BOLD shadows ----- */
+        .faq-item {
+            background: #0d0d0d;
+            padding: 24px;
+            border-radius: 20px;
+            border: 1px solid #2a2a2a;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 200, 83, 0.02);
+            transition: all 0.4s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #444;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 200, 83, 0.05), 0 0 60px rgba(0, 200, 83, 0.02);
+            transform: translateY(-4px);
+        }
+
+        .faq-item h4 {
+            color: #69f0ae;
+            margin-bottom: 8px;
+            text-shadow: 0 0 20px rgba(0, 200, 83, 0.1);
+        }
+
+        .faq-item p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* ----- Footer ----- */
+        footer {
+            padding: 40px 0 24px 0;
+            border-top: 1px solid #1a1a1a;
+            margin-top: 30px;
+            text-align: center;
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        footer .footer-links a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer .footer-links a:hover {
+            color: #69f0ae;
+        }
+
+        /* ----- Responsive ----- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .nav-links {
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 12px;
+            }
+            .product-highlight {
+                padding: 30px 20px;
+            }
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            .carousel-slide {
+                height: 240px;
+            }
+            .carousel-btn {
+                padding: 10px 14px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-slide {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">$1K <span>Income</span> Machine</div>
+            <div class="nav-links">
+                <a href="#reviews">Reviews</a>
+                <a href="#product">Product</a>
+                <a href="#faq">FAQ</a>
+                <a href="#cta" class="btn-small">Get Access</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Image Carousel (6 slides) -->
+    <section class="carousel-section container">
+        <div class="carousel-container">
+            <div class="carousel-slides" id="carouselSlides">
+                <!-- Slide 1 -->
+                <div class="carousel-slide">
+                    <div class="slide-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Slide 1 — Replace with your image</span>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-slide">
+                    <div class="slide-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Slide 2 — Replace with your image</span>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-slide">
+                    <div class="slide-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Slide 3 — Replace with your image</span>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="carousel-slide">
+                    <div class="slide-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Slide 4 — Replace with your image</span>
+                    </div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="carousel-slide">
+                    <div class="slide-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Slide 5 — Replace with your image</span>
+                    </div>
+                </div>
+                <!-- Slide 6 -->
+                <div class="carousel-slide">
+                    <div class="slide-placeholder">
+                        <i class="fas fa-image"></i>
+                        <span>Slide 6 — Replace with your image</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel Controls -->
+            <button class="carousel-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero container">
+        <div class="hero-badge">
+            <i class="fas fa-bolt" style="margin-right: 8px;"></i> 72-Hour System — No Ads Needed
+        </div>
+        <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <div class="rating-text">4.8 / 5 based on 26 real ratings</div>
+        <h1>
+            The <span class="highlight">First Customer</span> System<br>
+            Get Your First 10 Paying Customers in 72 Hours
+        </h1>
+        <p>
+            Stop waiting and hoping. This is the proven system that identifies, attracts, and converts your first buyers — <strong>without ads, without a big audience, and without being pushy</strong>.
+        </p>
+        <div class="cta-group">
+            <a href="#cta" class="btn-primary"><i class="fas fa-rocket" style="margin-right: 10px;"></i> Get Instant Access — $17</a>
+            <a href="#product" class="btn-secondary">See What's Inside</a>
+        </div>
+    </section>
+
+    <!-- Reviews Section (Real reviews) -->
+    <section id="reviews" class="reviews-section container">
+        <h2 class="section-title" style="text-align: center;">What Real Creators Are Saying</h2>
+        <p class="section-sub" style="text-align: center;">Real reviews from people who used the First Customer System to get their first sales.</p>
+
+        <div class="review-grid">
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="card-header">
+                    <div class="user">
+                        <div class="avatar">JD</div>
+                        <div class="user-info">
+                            <h4>Jamie D.</h4>
+                            <span class="handle">@jamiecreates</span>
+                        </div>
+                    </div>
+                    <div class="card-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                </div>
+                <span class="product-tag"><i class="fas fa-check-circle"></i> 1 month ago</span>
+                <p>"This was exactly what I needed to get started. Clear, actionable, and it worked right away."</p>
+                <div class="card-footer">
+                    <span class="likes"><i class="fas fa-heart"></i> 34</span>
+                    <a href="#" class="product-link">Read full review →</a>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="card-header">
+                    <div class="user">
+                        <div class="avatar">MR</div>
+                        <div class="user-info">
+                            <h4>Marcus R.</h4>
+                            <span class="handle">@marcuscoach</span>
+                        </div>
+                    </div>
+                    <div class="card-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                </div>
+                <span class="product-tag"><i class="fas fa-check-circle"></i> 4 months ago</span>
+                <p>"Helped me scale my digital product business from zero. The Reddit playbook alone was worth it."</p>
+                <div class="card-footer">
+                    <span class="likes"><i class="fas fa-heart"></i> 28</span>
+                    <a href="#" class="product-link">Read full review →</a>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card">
+                <div class="card-header">
+                    <div class="user">
+                        <div class="avatar">SN</div>
+                        <div class="user-info">
+                            <h4>Sarah N.</h4>
+                            <span class="handle">@sarahdigital</span>
+                        </div>
+                    </div>
+                    <div class="card-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                </div>
+                <span class="product-tag"><i class="fas fa-check-circle"></i> 4 months ago</span>
+                <p>"Honestly wasn't sure at first, but this surprised me. Helped me figure out my niche and validate demand before I built anything. Made around $500 so far."</p>
+                <div class="card-footer">
+                    <span class="likes"><i class="fas fa-heart"></i> 42</span>
+                    <a href="#" class="product-link">Read full review →</a>
+                </div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="review-card">
+                <div class="card-header">
+                    <div class="user">
+                        <div class="avatar">AL</div>
+                        <div class="user-info">
+                            <h4>Alex L.</h4>
+                            <span class="handle">@alexcreates</span>
+                        </div>
+                    </div>
+                    <div class="card-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                </div>
+                <span class="product-tag"><i class="fas fa-check-circle"></i> 6 months ago</span>
+                <p>"It was helpful, clear and to the point. No fluff, just a system that works if you follow the steps."</p>
+                <div class="card-footer">
+                    <span class="likes"><i class="fas fa-heart"></i> 19</span>
+                    <a href="#" class="product-link">Read full review →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Highlight -->
+    <section id="product" class="container">
+        <div class="product-highlight">
+            <div class="info">
+                <span class="hero-badge" style="margin-bottom: 12px; display: inline-block; background: rgba(0, 200, 83, 0.08); color: #69f0ae; border-color: #2a2a2a;">⚡ The First Customer System</span>
+                <h2>Your 72-Hour <span class="first-customer-highlight">Customer Acquisition</span> Machine</h2>
+                <p>Most digital products don't fail because they're bad. They fail because nobody sees them. This system replaces guessing with a repeatable process to find and convert your first 10 customers.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Identify qualified buyers and start conversations that get replies</li>
+                    <li><i class="fas fa-check-circle"></i> Turn strangers into warm leads with a free offer</li>
+                    <li><i class="fas fa-check-circle"></i> Follow-up scripts & objection handlers that close without being pushy</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>DM scripts, Notion CRM, Reddit playbook & checklists included</strong></li>
+                </ul>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px;">
+                    <span style="background: #0d0d0d; padding: 6px 16px; border-radius: 40px; border: 1px solid #2a2a2a; font-size: 0.9rem; color: #888; box-shadow: 0 2px 10px rgba(0,0,0,0.3);"><i class="fas fa-star" style="color: #ffd54f;"></i> 4.8/5 (26 ratings)</span>
+                    <span style="background: #0d0d0d; padding: 6px 16px; border-radius: 40px; border: 1px solid #2a2a2a; font-size: 0.9rem; color: #888; box-shadow: 0 2px 10px rgba(0,0,0,0.3);"><i class="fas fa-users" style="color: #82b1ff;"></i> Used by 1,000+ creators</span>
+                </div>
+            </div>
+            <div class="media">
+                <i class="fas fa-gem"></i>
+                <div style="font-size: 2.2rem; font-weight: 900; color: #69f0ae; margin: 8px 0; text-shadow: 0 0 40px rgba(0, 200, 83, 0.4);">$17</div>
+                <div class="placeholder-text">Complete System<br>+ All Templates</div>
+                <a href="#cta" class="btn-primary" style="padding: 14px 30px; font-size: 1rem; margin-top: 16px;">Claim Your Copy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="container" style="padding: 30px 0;">
+        <h2 class="section-title" style="text-align: center;">How The <span style="color: #82b1ff;">First Customer</span> System Works</h2>
+        <p class="section-sub" style="text-align: center;">A simple, proven framework to get your first paying customers — even if you're starting from zero.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin: 40px 0;">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Identify & Research</h3>
+                <p>Learn exactly who your ideal buyers are and where to find them online.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number" style="background: #2979ff; box-shadow: 0 0 40px rgba(41, 121, 255, 0.3);">2</div>
+                <h3>Start Conversations</h3>
+                <p>Use proven scripts to engage leads and turn cold DMs into warm conversations.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Close & Follow Up</h3>
+                <p>Handle objections naturally and confidently ask for the sale without feeling pushy.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number" style="background: #2979ff; box-shadow: 0 0 40px rgba(41, 121, 255, 0.3);">4</div>
+                <h3>Scale & Repeat</h3>
+                <p>Use the system to consistently bring in new customers and grow your income.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="cta" class="cta-section container">
+        <div class="cta-box">
+            <span class="hero-badge" style="background: #00c853; color: #000; border-color: #69f0ae; font-weight: 700;">🔥 GET INSTANT ACCESS</span>
+            <h2 style="font-size: 2.6rem; margin-top: 16px;">Start Getting <span style="color: #69f0ae;">Your First Customers</span> Today</h2>
+            <div class="price">
+                $17 <small>$97</small>
+            </div>
+            <p style="color: #888; max-width: 500px; margin: 0 auto 20px;">Includes the complete First Customer System: DM scripts, Reddit playbook, Notion CRM, checklists, and more.</p>
+            <div class="guarantee">
+                <i class="fas fa-shield-alt"></i>
+                <span>30-day money back guarantee. If it doesn't work for you, get a full refund.</span>
+            </div>
+            <a href="#" class="btn-primary" style="font-size: 1.4rem; padding: 18px 50px; width: 100%; max-width: 400px; margin: 0 auto;">
+                <i class="fas fa-lock" style="margin-right: 10px;"></i> Get the System — $17
+            </a>
+            <p style="color: #444; font-size: 0.8rem; margin-top: 20px;">Secure checkout · Instant digital access · No hidden fees</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container" style="padding: 40px 0;">
+        <h2 class="section-title" style="text-align: center;">Frequently Asked Questions</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 30px;">
+            <div class="faq-item">
+                <h4>Who is this system for?</h4>
+                <p>Creators, coaches, and digital product sellers who want to get their first 10 customers without ads or a big audience.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Does this work in any niche?</h4>
+                <p>Yes. The system is designed to work for any digital product, course, or coaching offer. The strategies are universal.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How fast will I see results?</h4>
+                <p>Most users get their first customer within 72 hours of applying the system. Some see results even faster.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What's included for $17?</h4>
+                <p>You get the complete First Customer System: DM scripts, follow-up templates, buyer research framework, Reddit playbook, Notion CRM, and checklists.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Support</a>
+                <a href="#">Refund Policy</a>
+            </div>
+            <p>© 2026 $1K Income Machine. All rights reserved. Made with <i class="fas fa-heart" style="color: #00e676; text-shadow: 0 0 30px rgba(0, 200, 83, 0.3);"></i> for creators.</p>
+        </div>
+    </footer>
+
+    <!-- Carousel JavaScript -->
+    <script>
+        (function() {
+            const slidesContainer = document.getElementById('carouselSlides');
+            const slides = slidesContainer.querySelectorAll('.carousel-slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('carouselDots');
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            // Create dots
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('carousel-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.dataset.index = i;
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+            function goToSlide(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                currentIndex = index;
+                slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+
+            function nextSlide() {
+                goToSlide(currentIndex + 1);
+            }
+
+            function prevSlide() {
+                goToSlide(currentIndex - 1);
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Keyboard support
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') nextSlide();
+                if (e.key === 'ArrowLeft') prevSlide();
+            });
+
+            // Touch support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const carousel = document.querySelector('.carousel-container');
+            carousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            carousel.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) nextSlide();
+                    else prevSlide();
+                }
+            });
+
+            window.goToSlide = goToSlide;
+        })();
+    </script>
+</body>
+</html>
