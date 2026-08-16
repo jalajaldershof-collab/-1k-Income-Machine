@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<!-- Meta Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    (function initPixel() {
+        const getFbc = () => {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [name, value] = cookie.trim().split('=');
+                if (name === '_fbc') return value;
+            }
+            return null;
+        };
+
+        const getFbp = () => {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [name, value] = cookie.trim().split('=');
+                if (name === '_fbp') return value;
+            }
+            return null;
+        };
+
+        fbq('init', '1690917758676510', {
+            client_ip_address: '{{client_ip_address}}',
+            client_user_agent: navigator.userAgent,
+            fbp: getFbp() || undefined,
+            fbc: getFbc() || undefined
+        });
+
+        fbq('track', 'PageView', {
+            content_name: 'First Customer System - Upsell',
+            content_category: 'Digital Product',
+            content_type: 'product'
+        }, {
+            eventID: 'pageview_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9)
+        });
+    })();
+</script>
+<noscript>
+    <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1690917758676510&ev=PageView&noscript=1"
+    />
+</noscript>
+<!-- End Meta Pixel Code -->
+
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$1K Income Machine — Epic Upsell</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/upsell.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">$1K <span>Income</span> Machine</div>
+        </div>
+    </nav>
+
+    <!-- Upsell Header -->
+    <section class="upsell-header container">
+        <div class="badge"><i class="fas fa-bolt"></i> Limited Time — Save Up to $230</div>
+        <h1>Complete Your <span class="highlight">First Customer</span> System</h1>
+        <p class="sub-headline">Select the upgrades that will <strong>supercharge your results</strong>. The more you add, the more you save — and the faster you win.</p>
+    </section>
+
+    <!-- Main Product -->
+    <section class="main-product container">
+        <div class="product-tile" id="mainProduct">
+            <div class="product-image">
+                <img src="Assets/firstcustomerblueprint.png" alt="First Customer System"> 
+            </div>
+            <div class="product-info">
+                <span class="product-badge"><i class="fas fa-check-circle"></i> Included in Every Order</span>
+                <h2>First Customer System</h2>
+                <div class="price">
+                    $17 <span class="original">$97</span>
+                    <span class="savings-badge"><i class="fas fa-tag"></i> Save $80</span>
+                </div>
+                <p>The complete 72-hour system to get your first 10 paying customers without ads, without a big audience, and without being pushy.</p>
+                <ul class="features">
+                    <li><i class="fas fa-check-circle"></i> DM scripts & follow-up templates that actually work</li>
+                    <li><i class="fas fa-check-circle"></i> Reddit acquisition playbook (untapped goldmine)</li>
+                    <li><i class="fas fa-check-circle"></i> Notion CRM & execution checklists</li>
+                    <li><i class="fas fa-check-circle"></i> Buyer research framework to find your ideal customers</li>
+                </ul>
+                <span class="selection-indicator"><i class="fas fa-check"></i> Included</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upsell Grid -->
+    <section class="container">
+        <h2 class="section-title" style="text-align: center; font-size: 2.2rem;">⚡ Choose Your Power-Ups</h2>
+        <p class="section-sub" style="text-align: center; margin-bottom: 0;">These are the upgrades that turn a good system into a <strong style="color: #69f0ae;">money-printing machine</strong>. The system works exponentially better when you have the complete arsenal. Don't leave money on the table.</p>
+
+        <div class="upsell-grid">
+            <!-- Upsell 1 -->
+            <div class="upsell-tile" id="upsell1">
+                <div class="selection-checkbox" id="checkbox1" onclick="window.toggleUpsell('upsell1', 'checkbox1', 10)">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="tile-image">
+                    <img src="Assets/whopsellerslaunchpad.png" alt="Launch Prompt & Templates">
+                </div>
+                <span class="tile-badge gold"><i class="fas fa-crown"></i> Best Seller</span>
+                <h3>Whop Sellers Launchpad</h3>
+                <div class="price">
+                    $10 <span class="original">$147</span>
+                </div>
+                <p class="description">Get your offer live in <strong>hours, not weeks</strong>. <strong>5 Prompts</strong> to A Sellable Product People Are Already Begging to Buy.</p>
+                <ul class="features">
+                    <li><i class="fas fa-check check"></i> 11 complete modules — the full path from product idea to first sales</li>
+                    <li><i class="fas fa-check check"></i> AI Prompt Vault — copy, paste into ChatGPT or Claude, get a ready output in seconds</li>
+                    <li><i class="fas fa-check check"></i> Built for total beginners — zero products, zero experience, doesn't matter</li>
+                    <li><i class="fas fa-check check"></i> Two ways to use it — fast path (prompts only) or full path (module by module)</li>
+                </ul>
+            </div>
+
+            <!-- Upsell 2 -->
+            <div class="upsell-tile" id="upsell2">
+                <div class="selection-checkbox" id="checkbox2" onclick="window.toggleUpsell('upsell2', 'checkbox2', 27)">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="tile-image">
+                    <img src="Assets/freeclientformula.png" alt="Premium Add-on">
+                </div>
+                <span class="tile-badge"><i class="fas fa-gem"></i> Premium Add-on</span>
+                <h3>Free Client Formula</h3>
+                <div class="price">
+                    $27 <span class="original">$197</span>
+                </div>
+                <p class="description">Turn $300 in ad spend into daily customers — then auto-upgrade them into $2K+ clients, without a single sales call.</p>
+                <ul class="features">
+                    <li><i class="fas fa-check check"></i> InstantROI Ads Blueprint (value: $197) — cold traffic into buyers, day one</li>
+                    <li><i class="fas fa-check check"></i> Digital Snack + Funnel templates — the $7-$27 offer structure that sells on autopilot</li>
+                    <li><i class="fas fa-check check"></i> No-Phone Selling System — done-for-you emails that close $2K-$5K clients</li>
+                    <li><i class="fas fa-check check"></i> Proven results — real sellers hitting €8K weeks and $10K months</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Summary -->
+    <section class="container">
+        <div class="price-summary">
+            <div>
+                <div class="total-label"><i class="fas fa-shopping-cart"></i> Your Order Total</div>
+                <div class="total-price">
+                    <span class="currency">$</span><span id="totalPrice">17</span>
+                </div>
+            </div>
+            <div class="savings" id="savingsDisplay">
+                <i class="fas fa-tag" style="margin-right: 6px;"></i> You save $0
+            </div>
+            <div class="cta-wrapper">
+                <button class="btn-primary" onclick="window.handleCheckout()">
+                    <i class="fas fa-lock" style="margin-right: 12px;"></i> Secure Your Order
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Section -->
+    <section class="bottom-section container">
+        <div class="section-headline">
+            <h2 class="section-title" style="text-align: center; font-size: 2rem; margin-bottom: 8px;">
+                The <span style="color: #69f0ae;">"Unfair Advantage"</span> Bundle
+            </h2>
+            <p class="section-sub" style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;">
+                Most creators who get all three products see results <strong style="color: #ffffff;">5x faster</strong>.
+            </p>
+        </div>
+
+        <div class="image-story-pair">
+            <div class="image-tile">
+                <div class="bottom-image">
+                    <img src="Assets/review3.jpg" alt="Success Story 1" style="width: 100%; height: 100%; object-fit: contain; object-position: center; position: relative; z-index: 0;">
+                </div>
+                <div class="story-content">
+                    <h3 class="story-title">From Zero to €8,700 in 7 Days</h3>
+                    <p class="story-text">
+                        "Jakub started the week with nothing but the same 3-product stack you're looking at right now. Seven days later — €8,251 in gross volume, a 213% jump from the week before. No agency, no ad team, no guesswork."
+                    </p>
+                    <div class="story-author">
+                        <span><strong>—Jakub Englart</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-divider"></div>
+
+        <div class="image-story-pair">
+            <div class="image-tile">
+                <div class="bottom-image">
+                    <img src="Assets/mainreview.jpg" alt="Success Story 2" style="width: 100%; height: 100%; object-fit: contain; object-position: center; position: relative; z-index: 0;">
+                </div>
+                <div class="story-content">
+                    <h3 class="story-title">$10K in His First Month — 12 Days Early</h3>
+                    <p class="story-text">
+                        "Thomas set out to hit $10K in month one. He got there with 12 days to spare. His words: "Once you know what your market wants and how to deliver, it's so easy to make money."
+                    </p>
+                    <div class="story-author">
+                        <span><strong>—Thomas</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+            </div>
+            <p>© 2026 $1K Income Machine. All rights reserved. Made with <i class="fas fa-heart footer-heart"></i> for creators who refuse to settle.</p>
+        </div>
+    </footer>
+
+    <script src="js/tracking.js"></script>
+    <script src="js/upsell.js"></script>
+</body>
+</html>

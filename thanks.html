@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<!-- Meta Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    (function initPixel() {
+        const getFbc = () => {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [name, value] = cookie.trim().split('=');
+                if (name === '_fbc') return value;
+            }
+            return null;
+        };
+
+        const getFbp = () => {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [name, value] = cookie.trim().split('=');
+                if (name === '_fbp') return value;
+            }
+            return null;
+        };
+
+        fbq('init', '1690917758676510', {
+            client_ip_address: '{{client_ip_address}}',
+            client_user_agent: navigator.userAgent,
+            fbp: getFbp() || undefined,
+            fbc: getFbc() || undefined
+        });
+
+        fbq('track', 'PageView', {
+            content_name: 'First Customer System - Thank You',
+            content_category: 'Digital Product',
+            content_type: 'product'
+        }, {
+            eventID: 'pageview_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9)
+        });
+    })();
+</script>
+<noscript>
+    <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1690917758676510&ev=PageView&noscript=1"
+    />
+</noscript>
+<!-- End Meta Pixel Code -->
+
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$1K Income Machine — Thank You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="css/thanks.css">
+</head>
+<body>
+    <div class="container">
+
+        <header class="success-header">
+            <span class="icon"><i class="fas fa-check-circle"></i></span>
+            <h1>
+                🎉 Welcome to <span class="highlight">The First Customer System</span>!
+            </h1>
+            <p class="subheading">
+                Your purchase was successful.<br />
+                You now have <strong>lifetime access</strong> to the complete system.<br />
+                You're officially one step closer to getting your first paying customer.
+            </p>
+        </header>
+
+        <section class="section excitement-section">
+            <h2>You Didn't Just Buy A Product<span class="highlight">...</span></h2>
+            <p>
+                You invested in a system designed to help you <strong>stop guessing</strong> and 
+                <strong>start getting customers</strong>.
+            </p>
+            <p>
+                The next few hours are important.<br />
+                Don't let this sit in your inbox.
+            </p>
+            <p>
+                Open the product today, follow the lessons in order, and implement everything as you go.
+            </p>
+            <div class="action-call">
+                <i class="fas fa-bolt" style="color: #00e676; margin-right: 10px;"></i>
+                Action creates results.
+            </div>
+        </section>
+
+        <section class="section notice-card">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Before You Start</h3>
+                </div>
+                <ul>
+                    <li><strong>Watch every lesson in order.</strong></li>
+                    <li><strong>Don't skip ahead.</strong></li>
+                    <li><strong>Implement each step</strong> before moving to the next.</li>
+                    <li>The people who <strong>take action</strong> are the ones who get results.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section cta-section">
+            <div class="btn-wrapper">
+                <a href="https://mail.google.com" class="btn-primary" target="_blank">
+                    <i class="fas fa-rocket" style="margin-right: 12px;"></i>
+                    Access Your Product
+                </a>
+            </div>
+        </section>
+
+        <section class="section motivation-section">
+            <h2>Your <span class="highlight">First Customer</span> Starts Today</h2>
+            <p>
+                Every successful creator started with <strong>zero customers</strong>.<br />
+                The difference wasn't luck.<br />
+                The difference was <strong>taking action consistently</strong>.<br /><br />
+                Today is <strong>Day 1</strong>.<br />
+                Let's get your first customer.
+            </p>
+        </section>
+
+        <div class="section final-reminder">
+            <i class="fas fa-envelope"></i>
+            Need help?<br />
+            Email us on jalajaldershof@gmail.com, and we'll be happy to help.
+        </div>
+
+    </div>
+
+    <script src="js/tracking.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "first-customer-system",
+  "version": "1.0.0",
+  "description": "$1K Income Machine — First Customer System Sales Page",
+  "main": "server/conversions-api.js",
+  "scripts": {
+    "start": "node server/conversions-api.js",
+    "dev": "node server/conversions-api.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}
